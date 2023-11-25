@@ -36,7 +36,7 @@ During fine-tuning, we freezed the feature encoder since it is learing basic spe
 The CTC algorithm introduces a special ’blank’ character to the output vocabu-
 lary, allowing for flexible alignments through repetition or omission of characters. Mathematically,
 the CTC loss is formulated as the negative log likelihood of the correct label sequence given an input sequence. Given an input sequence X = (x1, x2, ..., xT ) and a target sequence Y = (y1, y2, ..., yU ), where T and U are the lengths of the input and target sequences respectively, the CTC loss is defined as:
-$$\text{L_{CTC}(X, Y) = -\log P(Y|X) = -\log \left( \sum_{\pi \in A(Y, T)} P(\pi|X) \right)$$
+$$\text{L_{CTC}}(X, Y) = -\log P(Y|X) = -\log \left( \sum_{\pi \in A(Y, T)} P(\pi|X) \right)$$
 
 Here, A(Y, T ) represents the set of all valid alignments of Y to a sequence of length T using the
 CTC blank symbol, and P (π|X) denotes the probability of a particular alignment π. The CTC loss is
