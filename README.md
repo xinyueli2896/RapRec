@@ -47,12 +47,12 @@ For training we followed a [blog](https://huggingface.co/blog/fine-tune-wav2vec2
 
 Nevertheless, we developed four training files based on the complexity of the model and whether music source seperation (using **Demucs**) is conducted in the preprocessing stage.
 
-| Architecture    | File link       |
-|-----------------|-----------------|
-| Wav2Vec2Base    | [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main.ipynb)    |
-| Wav2Vec2Large    | [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main_Wav2VecLarge.ipynb )  |
-| Demucs+Wav2Vec2Base   | [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main_Demucs%2BWav2Vec2Base.ipynb)  |
-|Demucs+Wav2Vec2Large|   [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main_Demucs%2BWav2Vec2Large.ipynb)                  |
+| Architecture    | File link       | WER (%)   |
+|-----------------|-----------------|-----------|
+| Wav2Vec2Base    | [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main_Wav2Vec2Base.ipynb)    | 81.77 |
+| Wav2Vec2Large    | [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main_Wav2VecLarge.ipynb )  | 75.77 |
+| Demucs+Wav2Vec2Base   | [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main_Demucs%2BWav2Vec2Base.ipynb)  |  78.49 |
+|Demucs+Wav2Vec2Large|   [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main_Demucs%2BWav2Vec2Large.ipynb)                  |  72.49 |
 
 
 
