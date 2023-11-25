@@ -11,3 +11,6 @@ Store mp3 files into train and test subfolders under the main audiofolder and up
 ## [Clean up my Audiofolder](https://github.com/xinyueli2896/raptranscription/blob/main/loader_clean.ipynb)
 1. Filter out replicated and corrupted audio files
 2. Unmask explicit vocabulary
+
+## [Usage of the Audiofolder](https://github.com/xinyueli2896/raptranscription/blob/main/dataloader.ipynb)
+Load data with load_dataset from huggingface, specifying 'audiofolder' in the argument. More information see [url](https://huggingface.co/docs/datasets/audio_dataset#audiofolder).
