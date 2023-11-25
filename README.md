@@ -1,5 +1,7 @@
 # Towards Accurate Lyrics Recognition For Rap Songs
-Transcibe rap lyrics using wav2vec2.0 with CTC loss by transfer learning
+Transcibe rap lyrics using wav2vec2.0 with CTC loss by transfer learning.
+
+Our code is inherited from this blog on finetuning Wav2Vec 2.0. The dataset is stored on Google Drive.
 
 # Dataset
 We download audio and lyrics files of 187 English rap songs from a playlist on [QQMusic](https://c6.y.qq.com/base/fcgi-bin/u?__=AdOgRqZ)) featuring different rap artists. 
