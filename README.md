@@ -6,7 +6,7 @@ Our code is inherited from this [blog](https://huggingface.co/blog/fine-tune-wav
 # Dataset
 We download audio and lyrics files of 187 English rap songs from a playlist on [QQMusic](https://c6.y.qq.com/base/fcgi-bin/u?__=AdOgRqZ)) featuring different rap artists. For simplicity, if you would like to reproduce the result using our dataset, you can refer to the [dataset_clean folder](https://drive.google.com/drive/folders/1Cf6u-PFFzx5sveSPOBrhMYASKRE8fIRu?usp=share_link) directedly for processed data instead of raw data.
 
-## Prepare Audiofolder for loading(https://github.com/xinyueli2896/raptranscription/blob/main/loader_prepare.ipynb)
+## [Prepare Audiofolder for loading](https://github.com/xinyueli2896/raptranscription/blob/main/loader_prepare.ipynb)
 Segment the each audio file into several chunks with sample rate 44000Hz in alignment with the timestamps in the .flac files containing the lyrics. Then we store the path to our audio files and their "labels" (lyrics) in a .csv file to be used for loading as an audiofolder later.
 Store mp3 files into train and test subfolders under the main audiofolder and upload metadata.csv under the main directory as well.
 The dataset directory should look like this:
