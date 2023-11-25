@@ -41,6 +41,18 @@ $$\text{LCTC}(X, Y) = -\log P(Y|X) = -\log \left( \sum_{\pi \in A(Y, T)} P(\pi|X
 Here, A(Y, T ) represents the set of all valid alignments of Y to a sequence of length T using the
 CTC blank symbol, and P (π|X) denotes the probability of a particular alignment π. The CTC loss is
 minimized during training. This approach is particularly effective for rap lyrics transcription, where the rhythmic and fast-paced nature of the content poses unique alignment challenges
+
 # Training 
+For training we followed a [blog] on finetunig Wav2Vec 2.0 model. There were changes made to fit our objective, but the gist of it remains the same and might want to check the blog for detailed reference.
+
+Nevertheless, we developed four training files based on the complexity of the model and whether music source seperation (using **Demucs**) is conducted in the preprocessing stage.
+
+| Architecture    | File link       |
+|-----------------|-----------------|
+| Wav2Vec2Base    | [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main.ipynb)    |
+| Wav2Vec2Large    | [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main_Wav2VecLarge.ipynb )  |
+| Demucs+Wav2Vec2Base   | [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main_Demucs%2BWav2Vec2Base.ipynb)  |
+|Demucs+Wav2Vec2Large|   [notebook link](https://github.com/xinyueli2896/RapRec/blob/main/main_Demucs%2BWav2Vec2Large.ipynb)                  |
+
 
 
