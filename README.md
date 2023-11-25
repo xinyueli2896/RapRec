@@ -18,3 +18,19 @@ The dataset directory should look like this:
 
 ## [Usage of the Audiofolder](https://github.com/xinyueli2896/raptranscription/blob/main/dataloader.ipynb)
 Load data with load_dataset from huggingface, specifying 'audiofolder' and path to the dataset in the argument. More information see [documentation](https://huggingface.co/docs/datasets/audio_dataset#audiofolder).
+
+# Architecture
+## Wav2Vec 2.0 
+After we completed the dataset curation, we employed a pretrained [Wav2Vec 2.0](https://arxiv.org/abs/2006.11477) ASR model and further fine-tuning it on our dataset. We chose this architecture as it yields performance comparable to the best ASR systems available by learning robust speech representations through minimal fine-tuning on labelled speech data. The architecture has three modules: feature encoder(convolutional neural networks to process raw audio waveforms and transform them into latent speech representations), context model (transformer based model that learns contextually rich representations), and quantization model (that discretizes feature encoder output to be targets for the semi-supervised objective).
+
+## Connectionist Temporal Classification
+During fine-tuning, we freezed the feature encoder since it is learing basic speech representation. Therefore, we are only training the Transformer model with our labeled data. Because of the nature of speech as a sequence modeling task, the alignment of raw audio input and corresponding text output is not inherently clear. To overcome this challenge, the training is conducted using [Connectionist Temporal Classification (CTC)](https://distill.pub/2017/ctc/) algorithm.
+
+The CTC algorithm introduces a special ’blank’ character to the output vocabu-
+lary, allowing for flexible alignments through repetition or omission of characters. Mathematically,
+the CTC loss is formulated as the negative log likelihood of the correct label sequence given an input sequence. Given an input sequence X = (x1, x2, ..., xT ) and a target sequence Y = (y1, y2, ..., yU ), where T and U are the lengths of the input and target sequences respectively, the CTC loss is defined as:
+LCTC(X, Y ) = − log P (Y |X) = − log ∑ π∈A(Y,T ) P (π|X)
+
+Here, A(Y, T ) represents the set of all valid alignments of Y to a sequence of length T using the
+CTC blank symbol, and P (π|X) denotes the probability of a particular alignment π. The CTC loss is
+minimized during training. This approach is particularly effective for rap lyrics transcription, where the rhythmic and fast-paced nature of the content poses unique alignment challenges
